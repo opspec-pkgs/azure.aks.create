@@ -46,6 +46,7 @@ inputs:
     string:
       constraints: { minLength: 1, pattern: '^[a-z][a-z0-9-]{1,61}[a-z0-9]$' }
       description: Prefix for hostnames that are created. If not specified, gemerate a hostname using the managed cluster and resource group names.
+      default: " "
   kubernetesVersion:
     string:
       constraints: { minLength: 1 }

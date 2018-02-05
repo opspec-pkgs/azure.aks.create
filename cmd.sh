@@ -33,7 +33,6 @@ else
   aksCreateCmd=$(printf "%s --name %s" "$aksCreateCmd" "$name")
   aksCreateCmd=$(printf "%s --resource-group %s" "$aksCreateCmd" "$resourceGroup")
   aksCreateCmd=$(printf "%s --admin-username %s" "$aksCreateCmd" "$adminUsername")
-  aksCreateCmd=$(printf "%s --dns-name-prefix %s" "$aksCreateCmd" "$dnsNamePrefix")
   aksCreateCmd=$(printf "%s --kubernetes-version %s" "$aksCreateCmd" "$kubernetesVersion")
   aksCreateCmd=$(printf "%s --location %s" "$aksCreateCmd" "$location")
   aksCreateCmd=$(printf "%s --node-count %s" "$aksCreateCmd" "$nodeCount")
@@ -48,6 +47,10 @@ else
 
   if [ "$servicePrincipal" != " " ]; then
     aksCreateCmd=$(printf "%s --service-principal %s" "$aksCreateCmd" "$servicePrincipal")
+  fi
+
+  if [ "$dnsNamePrefix" != " " ]; then
+    aksCreateCmd=$(printf "%s --dns-name-prefix %s" "$aksCreateCmd" "$dnsNamePrefix")
   fi
 
   echo "creating kubernetes cluster"
