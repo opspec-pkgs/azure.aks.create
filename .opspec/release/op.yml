@@ -23,10 +23,10 @@ run:
         inputs:
           pkg:
         outputs:
-          imageTar:
+          pkg:
     - op:
         pkg: { ref: github.com/opspec-pkgs/git.repo.resolve-commit#1.0.0 }
-        inputs: { dotGitDir: $(pkg)/.git }
+        inputs: { dotGitDir: $(pkg/.git) }
         outputs: { commit: }
     - op:
         pkg: { ref: github.com/opspec-pkgs/github.release.create#1.0.0 }
