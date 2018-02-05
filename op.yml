@@ -1,0 +1,104 @@
+name: github.com/opspec-pkgs/azure.acs.create
+description: creates an azure container service instance (if doesn't already exist)
+inputs:
+  loginId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of user, service principal, or app to login with
+  loginSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: secret of user, service principal, or app to login with
+      isSecret: true
+  loginTenantId:
+    string:
+      constraints: { minLength: 1 }
+      description: tenant id of user, service principal, or app to login with
+      default: " "
+  loginType:
+    string:
+      constraints: { enum: [user, sp]}
+      description: type of login; 'user' (default) or 'sp' for service principal
+      default: user
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  name:
+    string:
+      constraints: { minLength: 1 }
+      description: name of provisioned AKS
+  resourceGroup:
+    string:
+      constraints: { minLength: 1 }
+      description: name of azure resource group
+  adminUsername:
+    string:
+      constraints: { minLength: 4, maxLength: 15 }
+      description: username on provisioned virtual machines
+      default: azureuser
+  clientSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: client secret of azure service principal for making calls to Azure API's
+      default: " "
+  dnsPrefix:
+    string:
+      constraints: { minLength: 1, pattern: '^[a-z][a-z0-9-]{1,61}[a-z0-9]$' }
+      description: Prefix for hostnames that are created. If not specified, gemerate a hostname using the managed cluster and resource group names.
+  kubernetesVersion:
+    string:
+      constraints: { minLength: 1 }
+      description: Version of Kubernetes to use for creating the cluster, such as "1.7.7" or "1.8.2".
+      default: 1.7.7
+  location:
+    string:
+      constraints: { enum: [ukwest, uksouth, westcentralus, westus2, canadaeast, canadacentral, westindia, southindia, centralindia] }
+      description: location of provisioned cluster
+      default: westus2
+  nodeCount:
+    number:
+      constraints: { format: integer, minimum: 1 }
+      description: Number of nodes in the Kubernetes node pool.
+      default: 3
+  nodeOSDiskSize:
+    number:
+      constraints: { format: integer, minimum: 1 }
+      description: Size in GB of the OS disk for each node in the node pool.
+      default: 30
+  nodeVmSize:
+    string:
+      description: Size of Virtual Machines to create as Kubernetes nodes.
+      default: Standard_D1_v2
+  sshKeyValue:
+    file:
+      description: ssh key added to authorized_keys on provisioned cluster agents
+  servicePrincipal:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure service principal for making calls to Azure API's
+      default: " "
+version: 1.0.0
+run:
+  container:
+    image: { ref: 'azuresdk/azure-cli-python:2.0.15' }
+    cmd: [ /cmd.sh ]
+    files: { /cmd.sh, /sshKeyValue: sshKeyValue }
+    envVars:
+      loginId:
+      loginSecret:
+      loginTenantId:
+      loginType:
+      subscriptionId:
+      name:
+      resourceGroup:
+      adminUsername:
+      clientSecret:
+      dnsPrefix:
+      kubernetesVersion:
+      location:
+      nodeCount:
+      nodeOSDiskSize:
+      nodeVmSize:
+      sshKeyValue:
+      servicePrincipal:
