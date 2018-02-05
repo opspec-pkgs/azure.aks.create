@@ -2,48 +2,52 @@
 
 # Problem statement
 
-creates an azure kubernetes service (if doesn't already exist)
+creates a kubernetes cluster in azure kubernetes service (if it doesn't exist)
+
+# Format
+
+this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5/packages.html) format
 
 # Example usage
-
-> note: in examples, VERSION represents a version of the
-> azure.aks.create pkg
 
 ## install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/azure.aks.create#VERSION
+opctl pkg install github.com/opspec-pkgs/azure.aks.create#1.0.1
 ```
 
 ## run
 
 ```
-opctl run github.com/opspec-pkgs/azure.aks.create#VERSION
+opctl run github.com/opspec-pkgs/azure.aks.create#1.0.1
 ```
 
 ## compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/azure.aks.create#VERSION }
+  pkg: { ref: github.com/opspec-pkgs/azure.aks.create#1.0.1 }
   inputs:
     loginId:
-      loginSecret:
-      loginTenantId:
-      loginType:
-      subscriptionId:
-      name:
-      resourceGroup:
-      adminUsername:
-      clientSecret:
-      dnsPrefix:
-      kubernetesVersion:
-      location:
-      nodeCount:
-      nodeOSDiskSize:
-      nodeVmSize:
-      sshKeyValue:
-      servicePrincipal:
+    loginSecret:
+    name:
+    resourceGroup:
+    sshKeyValue:
+    subscriptionId:
+    # begin optional params
+    adminUsername:
+    clientSecret:
+    dnsPrefix:
+    kubernetesVersion:
+    location:
+    loginTenantId:
+    loginType:
+    nodeCount:
+    nodeOSDiskSize:
+    nodeVmSize:
+    servicePrincipal:
+    # end optional params
+  outputs:
 ```
 
 # Support
