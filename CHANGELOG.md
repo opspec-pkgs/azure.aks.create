@@ -5,6 +5,11 @@ accordance with [![keepachangelog 1.0.0](https://img.shields.io/badge/keepachang
 
 ## \[Unreleased]
 
+## \[1.0.1] - 2018-02-08
+
+### Fixes
+- update location to not use enum
+
 ## \[1.0.1] - 2018-02-05
 
 ### Fixes
