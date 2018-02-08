@@ -49,8 +49,8 @@ else
     aksCreateCmd=$(printf "%s --service-principal %s" "$aksCreateCmd" "$servicePrincipal")
   fi
 
-  if [ "$dnsNamePrefix" != " " ]; then
-    aksCreateCmd=$(printf "%s --dns-name-prefix %s" "$aksCreateCmd" "$dnsNamePrefix")
+  if [ "$dnsPrefix" != " " ]; then
+    aksCreateCmd=$(printf "%s --dns-name-prefix %s" "$aksCreateCmd" "$dnsPrefix")
   fi
 
   echo "creating kubernetes cluster"
