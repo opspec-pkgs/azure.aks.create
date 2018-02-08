@@ -83,7 +83,7 @@ inputs:
 version: 1.0.2
 run:
   container:
-    image: { ref: 'azuresdk/azure-cli-python:2.0.15' }
+    image: { ref: 'azuresdk/azure-cli-python:2.0.25' }
     cmd: [ /cmd.sh ]
     files: { /cmd.sh, /sshKeyValue: sshKeyValue }
     envVars:
