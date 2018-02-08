@@ -56,7 +56,7 @@ inputs:
   location:
     string:
       constraints: { minLength: 1 }
-      description: location of provisioned cluster, currently available in: Canada Central, Canada East, East US, West Europ, West US 2
+      description: location of provisioned cluster, currently available in Canada Central, Canada East, East US, West Europ, West US 2
       default: eastus
   nodeCount:
     number:
