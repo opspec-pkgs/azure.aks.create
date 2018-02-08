@@ -55,9 +55,9 @@ inputs:
       default: 1.7.7
   location:
     string:
-      constraints: { enum: [ukwest, uksouth, westcentralus, westus2, canadaeast, canadacentral, westindia, southindia, centralindia] }
-      description: location of provisioned cluster
-      default: westus2
+      constraints: { minLength: 1 }
+      description: location of provisioned cluster, currently available in: Canada Central, Canada East, East US, West Europ, West US 2
+      default: eastus
   nodeCount:
     number:
       constraints: { format: integer, minimum: 1 }
@@ -80,7 +80,7 @@ inputs:
       constraints: { minLength: 1 }
       description: id of azure service principal for making calls to Azure API's
       default: " "
-version: 1.0.1
+version: 1.0.2
 run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:2.0.15' }
