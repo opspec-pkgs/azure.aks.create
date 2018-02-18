@@ -1,18 +1,26 @@
 # Change Log
 
-All notable changes will be documented in this file in
-accordance with [![keepachangelog 1.0.0](https://img.shields.io/badge/keepachangelog-1.0.0-brightgreen.svg)](http://keepachangelog.com/en/1.0.0/)
+All notable changes will be documented in this file in accordance with
+[![keepachangelog 1.0.0](https://img.shields.io/badge/keepachangelog-1.0.0-brightgreen.svg)](http://keepachangelog.com/en/1.0.0/)
 
 ## \[Unreleased]
 
-## \[1.0.1] - 2018-02-08
+## \[1.0.3] - 2018-02-18
+
+### Added
+
+- icon
+
+## \[1.0.2] - 2018-02-08
 
 ### Fixes
-- update location to not use enum
+
+- fix mismatch on dnsprefix variable (#4)
 
 ## \[1.0.1] - 2018-02-05
 
 ### Fixes
+
 - make dnsPrefix optional
 
 ## \[1.0.0] - 2018-02-05
