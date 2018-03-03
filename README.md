@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/opspec-pkgs/azure.aks.create.svg?branch=master)](https://travis-ci.org/opspec-pkgs/azure.aks.create)
 
+<img src="icon.svg" alt="icon" height="100px">
+
 # Problem statement
 
 creates a kubernetes cluster in azure kubernetes service (if it doesn't exist)
@@ -10,19 +12,19 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 
 # Example usage
 
-## install
+## Install
 
 ```shell
 opctl pkg install github.com/opspec-pkgs/azure.aks.create#1.0.3
 ```
 
-## run
+## Run
 
 ```
 opctl run github.com/opspec-pkgs/azure.aks.create#1.0.3
 ```
 
-## compose
+## Compose
 
 ```yaml
 op:
@@ -30,24 +32,22 @@ op:
   inputs:
     loginId:
     loginSecret:
+    subscriptionId:
     name:
     resourceGroup:
     sshKeyValue:
-    subscriptionId:
-    # begin optional params
+    # params w/ default
+    loginTenantId:
+    loginType:
     adminUsername:
     clientSecret:
     dnsPrefix:
     kubernetesVersion:
     location:
-    loginTenantId:
-    loginType:
     nodeCount:
     nodeOSDiskSize:
     nodeVmSize:
     servicePrincipal:
-    # end optional params
-  outputs:
 ```
 
 # Support
